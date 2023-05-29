@@ -1,8 +1,25 @@
 void main() {
-  escolherMeioTransporteEnum(Transporte.andando);
+  escolherMeioTransporte(Transporte.andando);
+
+  registrarDestinos("Rio Grande do Norte");
+  
+  Map<String,double> registrarPrecos = {};
+
+  registrarPrecos["São Paulo"] = 1200;
+  registrarPrecos["Gramado"] = 2200;
+
+  print(registrarPrecos);
+
 }
 
-void escolherMeioTransporteEnum(Transporte locomocao){
+Set<String> registrosVisitados = <String>{};
+
+Set<String> registrarDestinos(String destino){
+  registrosVisitados.add(destino);
+  return registrosVisitados;
+}
+
+void escolherMeioTransporte(Transporte locomocao){
  
   switch(locomocao) {
     case Transporte.carro:
@@ -18,7 +35,6 @@ void escolherMeioTransporteEnum(Transporte locomocao){
       print("Estou indo");
   }
 }
-
 enum Transporte{
   carro,
   bike,
