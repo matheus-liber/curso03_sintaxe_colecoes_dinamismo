@@ -1,46 +1,22 @@
+import 'viagem.dart';
+import 'transporte.dart';
+
 void main() {
-  escolherMeioTransporte(Transporte.andando);
+    Viagem viagemJulho = Viagem(locomocao: Transporte.carro);
 
-  registrarDestinos("Rio Grande do Norte");
-  
-  Map<String,double> registrarPrecos = {};
+    viagemJulho.registrarLocalViagem("Gramado");
+    viagemJulho.registrarLocalViagem("Natal");
 
-  registrarPrecos["São Paulo"] = 1200;
-  registrarPrecos["Gramado"] = 2200;
+    print(viagemJulho.consultarTotalLocaisVisitados);
 
-  print(registrarPrecos);
+    viagemJulho.alterarTotalLocaisVisitados = 16;
+
+    print(viagemJulho.consultarTotalLocaisVisitados);
+
 
 }
 
-Set<String> registrosVisitados = <String>{};
 
-Set<String> registrarDestinos(String destino){
-  registrosVisitados.add(destino);
-  return registrosVisitados;
-}
 
-void escolherMeioTransporte(Transporte locomocao){
- 
-  switch(locomocao) {
-    case Transporte.carro:
-      print("CARRO");
-      break;
-    case Transporte.bike:
-      print("BIKE");
-      break;
-    case Transporte.andando:
-      print("ANDANDO");
-      break;
-    default:
-      print("Estou indo");
-  }
-}
-enum Transporte{
-  carro,
-  bike,
-  andando,
-  skate,
-  aviao,
-  patins,
-  trem
-}
+
+
